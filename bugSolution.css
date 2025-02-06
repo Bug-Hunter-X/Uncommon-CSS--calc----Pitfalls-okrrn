@@ -1,0 +1,29 @@
+/* bugSolution.css */
+
+/* Instead of this (unit inconsistency): */
+/* width: calc(50% - 10px); */
+
+/* Do this (consistent units): */
+width: calc(50vw - 10px); /* Use vw for viewport width */
+
+/* Instead of this (complex nested calc): */
+/* height: calc(calc(100vh - 20px) / 2); */
+
+/* Do this (simplified calculation): */
+height: calc((100vh - 20px) / 2); 
+
+/* Use CSS variables to improve readability and maintainability */
+:root {
+  --header-height: 60px;
+}
+
+.container {
+  padding-top: var(--header-height);
+}
+
+/* Consider media queries for better responsiveness rather than overly complex calc() */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+  }
+}
